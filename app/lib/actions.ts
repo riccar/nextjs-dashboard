@@ -25,8 +25,14 @@ export async function createInvoice(formData: FormData) {
   });
 	const amountInCents = amount * 100; //store amount in cents to avoid floating point precision issues
 	const date = new Date().toISOString().split('T')[0];
-	await sql`INSERT INTO invoices (customer_id, amount, status, date) VALUES (${customerId}, ${amountInCents}, ${status}, ${date})`;
-
+  try {
+	  await sql`INSERT INTO invoices (customer_id, amount, status, date) VALUES (${customerId}, ${amountInCents}, ${status}, ${date})`;
+  } catch (error) {
+    console.error(error);
+    return {
+      message: 'Database Error: Failed to Create Invoice.',
+    };
+  }
 	revalidatePath('dashboard/invoices');
 	redirect('/dashboard/invoices');
 }
@@ -42,17 +48,31 @@ export async function updateInvoice(id: string, currentPage: string, formData: F
  
   const amountInCents = amount * 100;
  
-  await sql`
+  try {
+    await sql`
     UPDATE invoices
     SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
     WHERE id = ${id}
   `;
- 
+  } catch (error) {
+    console.error(error);
+    return {
+      message: 'Database Error: Failed to Update Invoice.',
+    };
+  }
   revalidatePath('/dashboard/invoices');
   redirect(`/dashboard/invoices?page=${currentPage}`);
 }
 
 export async function deleteInvoice(id: string) {
-  await sql`DELETE FROM invoices WHERE id = ${id}`;
+
+  try {
+    await sql`DELETE FROM invoices WHERE id = ${id}`;
+  } catch (error) {
+    console.error(error);
+    return {
+      message: 'Database Error: Failed to Delete Invoice.',
+    };
+  }
   revalidatePath('/dashboard/invoices');
 }
