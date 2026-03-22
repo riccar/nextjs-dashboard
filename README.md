@@ -1,5 +1,13 @@
-## Next.js App Router Course - Starter
+## Next.js Dashboard Demo
+This project was created using the starter template for the Next.js App Router Course and it was later extended in functionality. The styling was also considerably changed and improved
 
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
+### Commands
 
-For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
+`pnpm run dev`
+Starts the development server.
+
+`pnpm run build`
+Builds the app for production.
+
+`pnpm start`
+Runs the built app in production mode

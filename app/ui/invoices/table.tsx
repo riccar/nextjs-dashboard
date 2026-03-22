@@ -12,7 +12,7 @@ export default async function InvoicesTable({
   currentPage: number;
 }) {
   const invoices = await fetchFilteredInvoices(query, currentPage);
-
+  
   return (
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
@@ -47,7 +47,7 @@ export default async function InvoicesTable({
                     <p>{formatDateToLocal(invoice.date)}</p>
                   </div>
                   <div className="flex justify-end gap-2">
-                    <UpdateInvoice id={invoice.id} />
+                    <UpdateInvoice id={invoice.id} currentPage={currentPage}/>
                     <DeleteInvoice id={invoice.id} />
                   </div>
                 </div>
@@ -109,7 +109,7 @@ export default async function InvoicesTable({
                   </td>
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex justify-end gap-3">
-                      <UpdateInvoice id={invoice.id} />
+                      <UpdateInvoice id={invoice.id} currentPage={currentPage} />
                       <DeleteInvoice id={invoice.id} />
                     </div>
                   </td>
