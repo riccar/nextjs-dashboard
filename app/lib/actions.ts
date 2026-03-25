@@ -4,6 +4,8 @@ import { z } from 'zod';
 import {revalidatePath} from 'next/cache';
 import { redirect } from 'next/navigation';
 import postgres from 'postgres';
+import { AuthError } from 'next-auth';
+import { signIn } from '@/auth';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
@@ -30,7 +32,11 @@ export type State = {
   message?: string | null;
 };
 
-export async function createInvoice(prevState: State, formData: FormData) {
+export type DeleteInvoiceState = {
+  message?: string | null;
+};
+
+export async function createInvoice(_prevState: State, formData: FormData) {
 	const validatedFields = CreateInvoice.safeParse({
     customerId: formData.get('customerId'),
     amount: formData.get('amount'),
@@ -62,7 +68,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
 
 const UpdateInvoice = FormSchema.omit({ id: true, date: true });
 
-export async function updateInvoice(id: string, currentPage: string, prevState: State, formData: FormData) {
+export async function updateInvoice(id: string, currentPage: string, _prevState: State, formData: FormData) {
   const validatedFields = UpdateInvoice.safeParse({
     customerId: formData.get('customerId'),
     amount: formData.get('amount'),
@@ -96,8 +102,11 @@ export async function updateInvoice(id: string, currentPage: string, prevState: 
   redirect(`/dashboard/invoices?page=${currentPage}`);
 }
 
-export async function deleteInvoice(id: string) {
-
+export async function deleteInvoice(
+  id: string,
+  _prevState: DeleteInvoiceState | undefined,
+  _formData: FormData,
+): Promise<DeleteInvoiceState | undefined> {
   try {
     await sql`DELETE FROM invoices WHERE id = ${id}`;
   } catch (error) {
@@ -107,4 +116,23 @@ export async function deleteInvoice(id: string) {
     };
   }
   revalidatePath('/dashboard/invoices');
+}
+
+export async function authenticate(
+  _prevState: string | undefined,
+  formData: FormData,
+) {
+  try {
+    await signIn('credentials', formData);
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case 'CredentialsSignin':
+          return 'Invalid credentials.';
+        default:
+          return 'Something went wrong.';
+      }
+    }
+    throw error;
+  }
 }
