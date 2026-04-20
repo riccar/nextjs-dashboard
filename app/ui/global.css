@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg-color: #212031;
+  --bg-color-light: #2c2e42;
+  --bg-color-lighter: #43455c;
+  --text-color: #c8c8c8;
+  --accent-color: #fdcb68;
+  --ok-color: #1a8a43;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+}
+
+:focus-visible {
+  outline-color: #71717a;
+}
+
 input[type='number'] {
   -moz-appearance: textfield;
   appearance: textfield;

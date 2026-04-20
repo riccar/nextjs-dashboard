@@ -1,15 +1,16 @@
 import '@/app/ui/global.css';
-import { inter } from '@/app/ui/fonts';
+import { lato } from '@/app/ui/fonts';
 import { Metadata } from 'next';
- 
+import MainNav from './_components/main-nav';
+import Footer from './Footer';
+
 export const metadata: Metadata = {
   title: {
-    template: '%s | Acme Dashboard',
-    default: 'Acme Dashboard',
+    template: '%s | UptimeOps Dashboard',
+    default: 'UptimeOps Dashboard',
   },
-  description: 'Financial Dashboard for Acme.',
+  description: 'Financial Dashboard for UptimeOps.',
 };
-
 export default function RootLayout({
   children,
 }: {
@@ -17,7 +18,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${lato.className} antialiased bg-[var(--bg-color)] text-[var(--text-color)]`}>
+        <header className="sticky top-0 z-50 bg-[var(--bg-color)]">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
+            <MainNav />
+          </div>
+        </header>
+        <section className="max-w-[1200px] mx-auto px-4 sm:px-8">
+          {children}
+        </section>
+        <Footer />
+      </body>
     </html>
   );
 }

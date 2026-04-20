@@ -9,7 +9,7 @@ export function CreateInvoice() {
   return (
     <Link
       href="/dashboard/invoices/create"
-      className="flex h-10 items-center rounded-lg bg-blue-600 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+      className="flex h-10 items-center rounded-md bg-[var(--bg-color-light)] px-4 text-sm font-medium text-[var(--text-color)] border border-[var(--accent-color)] transition-colors duration-300 hover:bg-[var(--bg-color-lighter)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-color)]"
     >
       <span className="hidden md:block">Create Invoice</span>{' '}
       <PlusIcon className="h-5 md:ml-4" />
@@ -21,7 +21,7 @@ export function UpdateInvoice({ id, currentPage }: { id: string, currentPage: nu
   return (
     <Link
       href={`/dashboard/invoices/${id}/edit?page=${currentPage}`}
-      className="rounded-md border p-2 hover:bg-gray-100"
+      className="rounded-md border p-2 border-[var(--bg-color-lighter)] text-[var(--text-color)] transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]"
     >
       <PencilIcon className="w-5" />
     </Link>
@@ -37,10 +37,12 @@ export function DeleteInvoice({ id }: { id: string }) {
 
   return (
     <form action={formAction}>
-      <button type="submit" className="rounded-md border p-2 hover:bg-gray-100">
-        <span className="sr-only">Delete</span>
-        <TrashIcon className="w-5" />
-      </button>
-    </form>
-  );
+      <button type="submit"
+        className="rounded-md border p-2 border-[var(--bg-color-lighter)] text-[var(--text-color)] transition-colors duration-300 hover:bg-[var(--bg-color-lighter)] hover:text-[var(--text-color)]"
+      >
+      <span className="sr-only">Delete</span>
+      <TrashIcon className="w-5" />
+    </button>
+  </form>
+);
 }
