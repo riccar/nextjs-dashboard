@@ -1,10 +1,4 @@
-import {
-  BanknotesIcon,
-  ClockIcon,
-  UserGroupIcon,
-  InboxIcon,
-} from '@heroicons/react/24/outline';
-import { lusitana } from '@/app/ui/fonts';
+import { BanknotesIcon, ClockIcon, UserGroupIcon, InboxIcon } from '@heroicons/react/24/outline';
 import { fetchCardData } from '@/app/lib/data';
 
 const iconMap = {
@@ -15,18 +9,15 @@ const iconMap = {
 };
 
 export default async function CardWrapper() {
-  const { totalPaidInvoices, totalPendingInvoices, numberOfInvoices, numberOfCustomers } = await fetchCardData();
-  
+  const { totalPaidInvoices, totalPendingInvoices, numberOfInvoices, numberOfCustomers } =
+    await fetchCardData();
+
   return (
     <>
       <Card title="Collected" value={totalPaidInvoices} type="collected" />
       <Card title="Pending" value={totalPendingInvoices} type="pending" />
       <Card title="Total Invoices" value={numberOfInvoices} type="invoices" />
-      <Card
-        title="Total Customers"
-        value={numberOfCustomers}
-        type="customers"
-      />
+      <Card title="Total Customers" value={numberOfCustomers} type="customers" />
     </>
   );
 }
@@ -43,16 +34,12 @@ export function Card({
   const Icon = iconMap[type];
 
   return (
-    <div className="rounded-md p-3 bg-[var(--bg-color-light)] text-[var(--text-color-light)]">
+    <div className="rounded-md bg-[var(--bg-color-light)] p-3 text-[var(--text-color-light)]">
       <div className="flex">
         {Icon ? <Icon className="h-5 w-5" /> : null}
         <h3 className="ml-2 text-sm">{title}</h3>
       </div>
-      <p
-        className={`text-xl text-center p-5 text-[var(--text-color)]`}
-      >
-        {value}
-      </p>
+      <p className={`p-5 text-center text-xl text-[var(--text-color)]`}>{value}</p>
     </div>
   );
 }

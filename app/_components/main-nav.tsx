@@ -11,36 +11,32 @@ export default async function MainNav() {
       <UptimeOpsLogo />
       <NavigationMenu.Root>
         <NavigationMenu.List>
-            {session?.user ? (
-              <form
-                action={async () => {
-                  'use server';
-                  await signOut({ redirectTo: '/' });
-                }}
-              >
-                <NavigationMenu.Item>
-                  <button
-                    type="submit"
-                    className="px-3 py-1.5 rounded-sm transition-colors duration-300 hover:bg-[var(--bg-color-lighter)] leading-none"
-                  >
-                    Sign out
-                  </button>
-                </NavigationMenu.Item>
-              </form>
-            ) : (
+          {session?.user ? (
+            <form
+              action={async () => {
+                'use server';
+                await signOut({ redirectTo: '/' });
+              }}
+            >
               <NavigationMenu.Item>
-                <NavigationMenu.Link
-                  className="px-3 py-1 rounded-sm transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]"
-                  render={
-                    <Link href="/login">
-                      Sign in
-                    </Link>
-                  }
-                />
+                <button
+                  type="submit"
+                  className="rounded-sm px-3 py-1.5 leading-none transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]"
+                >
+                  Sign out
+                </button>
               </NavigationMenu.Item>
-            )}
-          </NavigationMenu.List>
-        </NavigationMenu.Root>
+            </form>
+          ) : (
+            <NavigationMenu.Item>
+              <NavigationMenu.Link
+                className="rounded-sm px-3 py-1 transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]"
+                render={<Link href="/login">Sign in</Link>}
+              />
+            </NavigationMenu.Item>
+          )}
+        </NavigationMenu.List>
+      </NavigationMenu.Root>
     </div>
   );
 }

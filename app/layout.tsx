@@ -11,22 +11,18 @@ export const metadata: Metadata = {
   },
   description: 'Financial Dashboard for UptimeOps.',
 };
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${lato.className} antialiased bg-[var(--bg-color)] text-[var(--text-color)]`}>
+      <body
+        className={`${lato.className} bg-[var(--bg-color)] text-[var(--text-color)] antialiased`}
+      >
         <header className="sticky top-0 z-50 bg-[var(--bg-color)]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
+          <div className="mx-auto max-w-[1200px] px-4 sm:px-8">
             <MainNav />
           </div>
         </header>
-        <section className="max-w-[1200px] mx-auto px-4 sm:px-8">
-          {children}
-        </section>
+        <section className="mx-auto max-w-[1200px] px-4 sm:px-8">{children}</section>
         <Footer />
       </body>
     </html>

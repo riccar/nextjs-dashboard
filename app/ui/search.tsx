@@ -20,7 +20,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
     } else {
       params.delete('query');
     }
-    
+
     //Replaces browser history and url with new params
     replace(`${pathname}?${params.toString()}`);
 
@@ -32,7 +32,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
       <Field.Root name="search" className="relative flex w-1/2">
         <Field.Label className="sr-only">Search</Field.Label>
         <Field.Control
-          className="min-w-56 block rounded-md border border-[var(--bg-color-lighter)] bg-[var(--bg-color)] py-[5px] pl-10 text-sm text-[var(--text-color)] placeholder:text-[var(--text-color)] focus-visible:ring-2 focus-visible:ring-[var(--bg-color-lighter)] focus-visible:ring-offset-0"
+          className="block min-w-56 rounded-md border border-[var(--bg-color-lighter)] bg-[var(--bg-color)] py-[5px] pl-10 text-sm text-[var(--text-color)] placeholder:text-[var(--text-color)] focus-visible:ring-2 focus-visible:ring-[var(--bg-color-lighter)] focus-visible:ring-offset-0"
           placeholder={placeholder}
           onChange={(e) => handleSearch(e.target.value, searchParams)}
           defaultValue={searchParams.get('query')?.toString()}

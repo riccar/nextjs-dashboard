@@ -1,4 +1,5 @@
 ## Next.js Dashboard Demo
+
 This project was created using the starter template for the Next.js App Router Course and it was later extended in functionality. The styling was also considerably changed and improved
 
 ### Commands

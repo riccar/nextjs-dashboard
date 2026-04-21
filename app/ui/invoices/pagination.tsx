@@ -110,11 +110,7 @@ function PaginationArrow({
   );
 
   const icon =
-    direction === 'left' ? (
-      <ArrowLeftIcon className="w-4" />
-    ) : (
-      <ArrowRightIcon className="w-4" />
-    );
+    direction === 'left' ? <ArrowLeftIcon className="w-4" /> : <ArrowRightIcon className="w-4" />;
 
   return isDisabled ? (
     <div className={className}>{icon}</div>

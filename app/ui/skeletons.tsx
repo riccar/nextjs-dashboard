@@ -33,7 +33,7 @@ export function RevenueChartSkeleton() {
     <div className={`${shimmer} relative w-full overflow-hidden md:col-span-4`}>
       <div className="mb-4 h-8 w-36 rounded-md bg-[var(--bg-color-light)]" />
       <div className="rounded-xl bg-[var(--bg-color-light)] p-4">
-        <div className="sm:grid-cols-13 mt-0 grid h-[410px] grid-cols-12 items-end gap-2 rounded-md bg-[var(--bg-color)] p-4 md:gap-4" />
+        <div className="mt-0 grid h-[410px] grid-cols-12 items-end gap-2 rounded-md bg-[var(--bg-color)] p-4 sm:grid-cols-13 md:gap-4" />
         <div className="flex items-center pb-2 pt-6">
           <div className="h-5 w-5 rounded-full bg-[var(--bg-color-lighter)]" />
           <div className="ml-2 h-4 w-20 rounded-md bg-[var(--bg-color-lighter)]" />
@@ -60,9 +60,7 @@ export function InvoiceSkeleton() {
 
 export function LatestInvoicesSkeleton() {
   return (
-    <div
-      className={`${shimmer} relative flex w-full flex-col overflow-hidden md:col-span-4`}
-    >
+    <div className={`${shimmer} relative flex w-full flex-col overflow-hidden md:col-span-4`}>
       <div className="mb-4 h-8 w-36 rounded-md bg-[var(--bg-color-light)]" />
       <div className="flex grow flex-col justify-between rounded-xl bg-[var(--bg-color-light)] p-4">
         <div className="bg-[var(--bg-color)] px-6">
@@ -187,10 +185,7 @@ export function InvoicesTableSkeleton() {
                 <th scope="col" className="px-3 py-5 font-medium">
                   Status
                 </th>
-                <th
-                  scope="col"
-                  className="relative pb-4 pl-3 pr-6 pt-2 sm:pr-6"
-                >
+                <th scope="col" className="relative pb-4 pl-3 pr-6 pt-2 sm:pr-6">
                   <span className="sr-only">Edit</span>
                 </th>
               </tr>

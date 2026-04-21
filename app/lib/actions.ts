@@ -1,7 +1,7 @@
 'use server';
 
 import { z } from 'zod';
-import {revalidatePath} from 'next/cache';
+import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import postgres from 'postgres';
 import { AuthError } from 'next-auth';
@@ -15,10 +15,10 @@ const FormSchema = z.object({
     invalid_type_error: 'Please select a customer.',
   }),
   amount: z.coerce.number().gt(0, { message: 'Please enter an amount greater than $0.' }),
-  status: z.enum(['pending', 'paid'],{
+  status: z.enum(['pending', 'paid'], {
     invalid_type_error: 'Please select an invoice status.',
   }),
-	date: z.string(),
+  date: z.string(),
 });
 
 const CreateInvoice = FormSchema.omit({ id: true, date: true });
@@ -37,7 +37,7 @@ export type DeleteInvoiceState = {
 };
 
 export async function createInvoice(_prevState: State, formData: FormData) {
-	const validatedFields = CreateInvoice.safeParse({
+  const validatedFields = CreateInvoice.safeParse({
     customerId: formData.get('customerId'),
     amount: formData.get('amount'),
     status: formData.get('status'),
@@ -52,23 +52,28 @@ export async function createInvoice(_prevState: State, formData: FormData) {
 
   const { customerId, amount, status } = validatedFields.data;
 
-	const amountInCents = amount * 100; //store amount in cents to avoid floating point precision issues
-	const date = new Date().toISOString().split('T')[0];
+  const amountInCents = amount * 100; //store amount in cents to avoid floating point precision issues
+  const date = new Date().toISOString().split('T')[0];
   try {
-	  await sql`INSERT INTO invoices (customer_id, amount, status, date) VALUES (${customerId}, ${amountInCents}, ${status}, ${date})`;
+    await sql`INSERT INTO invoices (customer_id, amount, status, date) VALUES (${customerId}, ${amountInCents}, ${status}, ${date})`;
   } catch (error) {
     console.error(error);
     return {
       message: 'Database Error: Failed to Create Invoice.',
     };
   }
-	revalidatePath('dashboard/invoices');
-	redirect('/dashboard/invoices');
+  revalidatePath('dashboard/invoices');
+  redirect('/dashboard/invoices');
 }
 
 const UpdateInvoice = FormSchema.omit({ id: true, date: true });
 
-export async function updateInvoice(id: string, currentPage: string, _prevState: State, formData: FormData) {
+export async function updateInvoice(
+  id: string,
+  currentPage: string,
+  _prevState: State,
+  formData: FormData,
+) {
   const validatedFields = UpdateInvoice.safeParse({
     customerId: formData.get('customerId'),
     amount: formData.get('amount'),
@@ -81,11 +86,11 @@ export async function updateInvoice(id: string, currentPage: string, _prevState:
       message: 'Missing Fields. Failed to Update Invoice.',
     };
   }
-  
+
   const { customerId, amount, status } = validatedFields.data;
 
   const amountInCents = amount * 100;
- 
+
   try {
     await sql`
     UPDATE invoices
@@ -118,10 +123,7 @@ export async function deleteInvoice(
   revalidatePath('/dashboard/invoices');
 }
 
-export async function authenticate(
-  _prevState: string | undefined,
-  formData: FormData,
-) {
+export async function authenticate(_prevState: string | undefined, formData: FormData) {
   try {
     await signIn('credentials', formData);
   } catch (error) {

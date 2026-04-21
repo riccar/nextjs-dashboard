@@ -16,18 +16,13 @@ export default async function Page(props: {
   const id = params.id;
   const currentPage = searchParams?.page ?? '1';
   const invoicesListHref =
-    currentPage === '1'
-      ? '/dashboard/invoices'
-      : `/dashboard/invoices?page=${currentPage}`;
+    currentPage === '1' ? '/dashboard/invoices' : `/dashboard/invoices?page=${currentPage}`;
 
-  const [invoice, customers] = await Promise.all([
-    fetchInvoiceById(id),
-    fetchCustomers(),
-  ]);
+  const [invoice, customers] = await Promise.all([fetchInvoiceById(id), fetchCustomers()]);
 
-	if (!invoice) {
-		notFound();
-	}
+  if (!invoice) {
+    notFound();
+  }
 
   return (
     <main>

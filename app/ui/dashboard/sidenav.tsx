@@ -16,7 +16,7 @@ export default function SideNav() {
 
   return (
     <NavigationMenu.Root>
-      <NavigationMenu.List className="flex flex-row sm:flex-col gap-2 pb-4 pr-4">
+      <NavigationMenu.List className="flex flex-row gap-2 pb-4 pr-4 sm:flex-col">
         {links.map((link) => {
           const isActive = pathname === link.href;
           return (
@@ -24,18 +24,18 @@ export default function SideNav() {
               <NavigationMenu.Link
                 className={clsx(
                   'flex items-center overflow-hidden rounded-sm transition-colors duration-300 hover:bg-[var(--bg-color-lighter)] sm:w-full',
-                  { 'bg-[var(--bg-color-lighter)]': isActive }
+                  { 'bg-[var(--bg-color-lighter)]': isActive },
                 )}
                 render={
                   <Link href={link.href}>
                     <span
                       className={clsx(
                         'w-[5px] self-stretch',
-                        isActive ? 'bg-[var(--accent-color)]' : 'bg-transparent'
+                        isActive ? 'bg-[var(--accent-color)]' : 'bg-transparent',
                       )}
                       aria-hidden
                     />
-                    <span className="px-3 py-1 flex-1">{link.name}</span>
+                    <span className="flex-1 px-3 py-1">{link.name}</span>
                   </Link>
                 }
               />

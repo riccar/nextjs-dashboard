@@ -7,12 +7,15 @@ import { fetchInvoicesPages } from '@/app/lib/data';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { PlusIcon } from '@heroicons/react/24/outline';
+import clsx from 'clsx';
 
 export const metadata: Metadata = {
   title: 'Invoices',
 };
 
-export default async function Page(props: { searchParams?: Promise<{ query?: string; page?: string }> }) {
+export default async function Page(props: {
+  searchParams?: Promise<{ query?: string; page?: string }>;
+}) {
   const searchParams = await props.searchParams;
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;
@@ -25,13 +28,18 @@ export default async function Page(props: { searchParams?: Promise<{ query?: str
         <Search placeholder="Search invoices" />
         <Link
           href="/dashboard/invoices/create"
-          className="flex h-8 items-center rounded-md bg-[var(--bg-color)] text-[var(--text-color)] px-2 text-sm border border-[var(--bg-color-lighter)] transition-colors duration-300 hover:bg-[var(--bg-color-lighter)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-[var(--bg-color-lighter)]"
+          className={clsx(
+            'flex h-8 items-center rounded-md px-2 text-sm',
+            'border border-[var(--bg-color-lighter)] bg-[var(--bg-color)] text-[var(--text-color)]',
+            'transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]',
+            'focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-[var(--bg-color-lighter)]',
+          )}
         >
           <span className="hidden md:block">Create Invoice</span>
           <PlusIcon className="h-5 md:ml-1" />
         </Link>
       </div>
-       <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
+      <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
         <Table query={query} currentPage={currentPage} />
       </Suspense>
       <div className="mt-5 flex w-full justify-center">

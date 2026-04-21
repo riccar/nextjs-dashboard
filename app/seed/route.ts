@@ -100,12 +100,7 @@ export async function GET() {
   try {
     await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
-    const result = await sql.begin((sql) => [
-      seedUsers(),
-      seedCustomers(),
-      seedInvoices(),
-      seedRevenue(),
-    ]);
+    await sql.begin(() => [seedUsers(), seedCustomers(), seedInvoices(), seedRevenue()]);
 
     return Response.json({ message: 'Database seeded successfully' });
   } catch (error) {
