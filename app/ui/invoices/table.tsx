@@ -25,7 +25,7 @@ export default async function InvoicesTable({
               >
                 <div className="flex items-center justify-between border-b pb-4">
                   <div>
-                    <div className="mb-2 flex items-center">
+                    <div className="mb-2 text-sm flex items-center">
                       <Image
                         src={invoice.image_url}
                         className="mr-2 rounded-full"
@@ -35,13 +35,13 @@ export default async function InvoicesTable({
                       />
                       <p className="text-[var(--text-color)]">{invoice.name}</p>
                     </div>
-                    <p className="text-sm text-[var(--text-color)]">{invoice.email}</p>
+                    <p className="text-[var(--text-color)]">{invoice.email}</p>
                   </div>
                   <InvoiceStatus status={invoice.status} />
                 </div>
                 <div className="flex w-full items-center justify-between pt-4">
                   <div>
-                    <p className="text-sm font-medium text-[var(--text-color)]">
+                    <p className="font-medium text-[var(--text-color)]">
                       {formatCurrency(invoice.amount)}
                     </p>
                     <p className="text-[var(--text-color)]">{formatDateToLocal(invoice.date)}</p>
@@ -54,8 +54,8 @@ export default async function InvoicesTable({
               </div>
             ))}
           </div>
-          <table className="hidden min-w-full text-[var(--text-color)] md:table">
-            <thead className="rounded-lg text-left text-sm font-normal">
+          <table className="hidden min-w-full text-[var(--text-color-light)] md:table">
+            <thead className="rounded-lg text-left text-md font-normal">
               <tr>
                 <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
                   Customer
@@ -81,7 +81,7 @@ export default async function InvoicesTable({
               {invoices?.map((invoice) => (
                 <tr
                   key={invoice.id}
-                  className="w-full border-b border-[var(--bg-color-lighter)] py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-sm [&:first-child>td:last-child]:rounded-tr-sm [&:last-child>td:first-child]:rounded-bl-sm [&:last-child>td:last-child]:rounded-br-sm"
+                  className="w-full border-b border-[var(--bg-color-lighter)] py-3 text-md text-[var(--text-color)] last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-sm [&:first-child>td:last-child]:rounded-tr-sm [&:last-child>td:first-child]:rounded-bl-sm [&:last-child>td:last-child]:rounded-br-sm"
                 >
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex items-center gap-3">

@@ -43,13 +43,13 @@ export function Card({
   const Icon = iconMap[type];
 
   return (
-    <div className="rounded-md p-3 bg-[var(--bg-color-light)]">
+    <div className="rounded-md p-3 bg-[var(--bg-color-light)] text-[var(--text-color-light)]">
       <div className="flex">
         {Icon ? <Icon className="h-5 w-5" /> : null}
         <h3 className="ml-2 text-sm">{title}</h3>
       </div>
       <p
-        className={`text-xl text-center p-5`}
+        className={`text-xl text-center p-5 text-[var(--text-color)]`}
       >
         {value}
       </p>
