@@ -35,7 +35,7 @@ export default async function LatestInvoices() {
                   </p>
                 </div>
               </div>
-              <p className={`truncate text-sm font-medium md:text-base`}>{invoice.amount}</p>
+              <p className={`truncate text-sm font-semibold md:text-base`}>{invoice.amount}</p>
             </div>
           );
         })}

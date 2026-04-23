@@ -1,7 +1,7 @@
 import Pagination from '@/app/ui/invoices/pagination';
 import Search from '@/app/ui/search';
 import Table from '@/app/ui/invoices/table';
-import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
+import { InvoicesTableSkeleton, PaginationSkeleton } from '@/app/ui/skeletons';
 import { Suspense } from 'react';
 import { fetchInvoicesPages } from '@/app/lib/data';
 import { Metadata } from 'next';
@@ -13,14 +13,9 @@ export const metadata: Metadata = {
   title: 'Invoices',
 };
 
-export default async function Page(props: {
-  searchParams?: Promise<{ query?: string; page?: string }>;
-}) {
-  const searchParams = await props.searchParams;
-  const query = searchParams?.query || '';
-  const currentPage = Number(searchParams?.page) || 1;
-  const totalPages = await fetchInvoicesPages(query);
+type SearchParams = Promise<{ query?: string; page?: string } | undefined>;
 
+export default function Page(props: { searchParams?: SearchParams }) {
   return (
     <div className="w-full">
       <h1 className={`text-xl md:text-2xl`}>Invoices</h1>
@@ -39,12 +34,28 @@ export default async function Page(props: {
           <PlusIcon className="h-5 md:ml-1" />
         </Link>
       </div>
-      <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
-        <Table query={query} currentPage={currentPage} />
+      <Suspense fallback={<InvoicesTableSkeleton />}>
+        <TableWrapper searchParams={props.searchParams} />
       </Suspense>
       <div className="mt-5 flex w-full justify-center">
-        <Pagination totalPages={totalPages} />
+        <Suspense fallback={<PaginationSkeleton />}>
+          <PaginationWrapper searchParams={props.searchParams} />
+        </Suspense>
       </div>
     </div>
   );
+}
+
+async function TableWrapper({ searchParams }: { searchParams?: SearchParams }) {
+  const params = await searchParams;
+  const query = params?.query || '';
+  const currentPage = Number(params?.page) || 1;
+  return <Table query={query} currentPage={currentPage} />;
+}
+
+async function PaginationWrapper({ searchParams }: { searchParams?: SearchParams }) {
+  const params = await searchParams;
+  const query = params?.query || '';
+  const totalPages = await fetchInvoicesPages(query);
+  return <Pagination totalPages={totalPages} />;
 }

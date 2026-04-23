@@ -1,4 +1,5 @@
 import postgres from 'postgres';
+import { cacheLife, cacheTag } from 'next/cache';
 import {
   CustomerField,
   CustomersTableType,
@@ -12,8 +13,12 @@ import { formatCurrency } from './utils';
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
 export async function fetchRevenue() {
+  'use cache';
+  cacheLife('dashboardData');
+  cacheTag('revenue');
+
   try {
-    const data = await sql<Revenue[]>`SELECT * FROM revenue`;
+    const data = await sql<Revenue[]>`SELECT month, revenue FROM revenue`;
 
     return data;
   } catch (error) {
@@ -23,6 +28,10 @@ export async function fetchRevenue() {
 }
 
 export async function fetchLatestInvoices() {
+  'use cache';
+  cacheLife('dashboardData');
+  cacheTag('invoices');
+
   try {
     const data = await sql<LatestInvoiceRaw[]>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
@@ -43,6 +52,11 @@ export async function fetchLatestInvoices() {
 }
 
 export async function fetchCardData() {
+  'use cache';
+  cacheLife('dashboardData');
+  cacheTag('invoices');
+  cacheTag('customers');
+
   try {
     // You can probably combine these into a single SQL query
     // However, we are intentionally splitting them to demonstrate
@@ -79,6 +93,10 @@ export async function fetchCardData() {
 
 const ITEMS_PER_PAGE = 6;
 export async function fetchFilteredInvoices(query: string, currentPage: number) {
+  'use cache';
+  cacheLife('dashboardData');
+  cacheTag('invoices');
+
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
   try {
@@ -111,6 +129,10 @@ export async function fetchFilteredInvoices(query: string, currentPage: number) 
 }
 
 export async function fetchInvoicesPages(query: string) {
+  'use cache';
+  cacheLife('dashboardData');
+  cacheTag('invoices');
+
   try {
     const data = await sql`SELECT COUNT(*)
     FROM invoices
@@ -132,6 +154,11 @@ export async function fetchInvoicesPages(query: string) {
 }
 
 export async function fetchInvoiceById(id: string) {
+  'use cache';
+  cacheLife('dashboardData');
+  cacheTag('invoices');
+  cacheTag(`invoice-${id}`);
+
   try {
     const data = await sql<InvoiceForm[]>`
       SELECT
@@ -157,6 +184,10 @@ export async function fetchInvoiceById(id: string) {
 }
 
 export async function fetchCustomers() {
+  'use cache';
+  cacheLife('dashboardData');
+  cacheTag('customers');
+
   try {
     const customers = await sql<CustomerField[]>`
       SELECT

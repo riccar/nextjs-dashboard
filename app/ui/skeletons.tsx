@@ -154,6 +154,36 @@ export function InvoicesMobileSkeleton() {
   );
 }
 
+export function InvoiceFormSkeleton() {
+  return (
+    <div
+      className={`${shimmer} relative overflow-hidden rounded-md bg-[var(--bg-color-light)] p-4 md:p-6`}
+    >
+      <div className="mb-4 h-4 w-24 rounded-sm bg-[var(--bg-color-lighter)]" />
+      <div className="mb-6 h-10 w-full rounded-md bg-[var(--bg-color-lighter)]" />
+      <div className="mb-4 h-4 w-28 rounded-sm bg-[var(--bg-color-lighter)]" />
+      <div className="mb-6 h-10 w-full rounded-md bg-[var(--bg-color-lighter)]" />
+      <div className="mb-4 h-4 w-32 rounded-sm bg-[var(--bg-color-lighter)]" />
+      <div className="mb-6 flex gap-4">
+        <div className="h-20 w-full rounded-md bg-[var(--bg-color-lighter)]" />
+        <div className="h-20 w-full rounded-md bg-[var(--bg-color-lighter)]" />
+      </div>
+      <div className="mt-6 flex justify-end gap-4">
+        <div className="h-10 w-24 rounded-md bg-[var(--bg-color-lighter)]" />
+        <div className="h-10 w-32 rounded-md bg-[var(--bg-color-lighter)]" />
+      </div>
+    </div>
+  );
+}
+
+export function PaginationSkeleton() {
+  return (
+    <div
+      className={`${shimmer} relative h-10 w-[292px] overflow-hidden rounded-md bg-[var(--bg-color-light)] md:w-[308px]`}
+    />
+  );
+}
+
 export function InvoicesTableSkeleton() {
   return (
     <div className="mt-6 flow-root">

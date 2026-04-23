@@ -1,7 +1,7 @@
 'use server';
 
 import { z } from 'zod';
-import { revalidatePath } from 'next/cache';
+import { updateTag } from 'next/cache';
 import { redirect } from 'next/navigation';
 import postgres from 'postgres';
 import { AuthError } from 'next-auth';
@@ -62,7 +62,7 @@ export async function createInvoice(_prevState: State, formData: FormData) {
       message: 'Database Error: Failed to Create Invoice.',
     };
   }
-  revalidatePath('dashboard/invoices');
+  updateTag('invoices');
   redirect('/dashboard/invoices');
 }
 
@@ -103,7 +103,7 @@ export async function updateInvoice(
       message: 'Database Error: Failed to Update Invoice.',
     };
   }
-  revalidatePath('/dashboard/invoices');
+  updateTag('invoices');
   redirect(`/dashboard/invoices?page=${currentPage}`);
 }
 
@@ -120,7 +120,7 @@ export async function deleteInvoice(
       message: 'Database Error: Failed to Delete Invoice.',
     };
   }
-  revalidatePath('/dashboard/invoices');
+  updateTag('invoices');
 }
 
 export async function authenticate(_prevState: string | undefined, formData: FormData) {

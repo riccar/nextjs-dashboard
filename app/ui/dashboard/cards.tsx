@@ -39,7 +39,7 @@ export function Card({
         {Icon ? <Icon className="h-5 w-5" /> : null}
         <h3 className="ml-2 text-sm">{title}</h3>
       </div>
-      <p className={`p-5 text-center text-xl text-[var(--text-color)]`}>{value}</p>
+      <p className={`p-5 text-center font-semibold text-xl text-[var(--text-color)]`}>{value}</p>
     </div>
   );
 }
