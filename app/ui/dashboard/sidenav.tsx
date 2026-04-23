@@ -11,14 +11,12 @@ const links = [
   { name: 'Customers', href: '/dashboard/customers' },
 ];
 
-export default function SideNav() {
-  const pathname = usePathname();
-
+function NavLinks({ activePath }: { activePath: string | null }) {
   return (
     <NavigationMenu.Root>
       <NavigationMenu.List className="flex flex-row gap-2 pb-4 pr-4 sm:flex-col">
         {links.map((link) => {
-          const isActive = pathname === link.href;
+          const isActive = activePath === link.href;
           return (
             <NavigationMenu.Item key={link.name} className="sm:w-full">
               <NavigationMenu.Link
@@ -45,4 +43,17 @@ export default function SideNav() {
       </NavigationMenu.List>
     </NavigationMenu.Root>
   );
+}
+
+export default function SideNav() {
+  const pathname = usePathname();
+  return <NavLinks activePath={pathname} />;
+}
+
+// Static fallback used inside a <Suspense> boundary so the sidebar can be part
+// of the prerendered shell without reading the runtime `usePathname()` API.
+// Renders the same markup with no active highlight; the real SideNav replaces
+// it at hydration with the correct active state.
+export function SideNavFallback() {
+  return <NavLinks activePath={null} />;
 }
