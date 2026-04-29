@@ -1,7 +1,7 @@
 import '@/app/ui/global.css';
 import { lato } from '@/app/ui/fonts';
 import { Metadata } from 'next';
-import MainNav from './_components/main-nav';
+import MainNav from './_components/MainNav';
 import Footer from './Footer';
 
 export const metadata: Metadata = {

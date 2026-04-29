@@ -24,21 +24,29 @@ async function AuthButton() {
 
   if (session?.user) {
     return (
-      <form
-        action={async () => {
-          'use server';
-          await signOut({ redirectTo: '/' });
-        }}
-      >
+      <div className="flex items-center gap-2">
         <NavigationMenu.Item>
-          <button
-            type="submit"
-            className="rounded-sm px-3 py-2 leading-none transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]"
-          >
-            Sign out
-          </button>
+          <NavigationMenu.Link
+            className="rounded-sm px-3 py-2 transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]"
+            render={<Link href="/dashboard">Dashboard</Link>}
+          />
         </NavigationMenu.Item>
-      </form>
+        <form
+          action={async () => {
+            'use server';
+            await signOut({ redirectTo: '/' });
+          }}
+        >
+          <NavigationMenu.Item>
+            <button
+              type="submit"
+              className="rounded-sm px-3 py-2 leading-none transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]"
+            >
+              Sign out
+            </button>
+          </NavigationMenu.Item>
+        </form>
+      </div>
     );
   }
 

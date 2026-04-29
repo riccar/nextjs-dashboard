@@ -19,34 +19,37 @@ export default function Page() {
       <div className="mt-10 flex flex-col gap-10 md:flex-row">
         <section className="flex flex-col gap-8 md:flex-row">
           <div>
-            <Image src={itSupport} alt="Managed IT Support" width={200} height={200} />
+            <div className="mb-2 flex h-[200px] items-center justify-center rounded-md bg-[var(--bg-color-lighter)] text-sm font-semibold text-[var(--text-color)]">
+              Coming soon
+            </div>
             <h3 className="my-2 text-xl font-semibold">Managed IT Support</h3>
-            <p>
+            <p className="min-h-[100px]">
               We take care of day-to-day IT operations so your systems stay stable, secure, and
               predictable. Our focus is on preventing issues before they impact your business.
             </p>
-
-            <h3 className="my-2 text-xl font-semibold">Monitoring & Maintenance</h3>
-            <p>
+            <div className="mb-2 flex h-[200px] items-center justify-center rounded-md bg-[var(--bg-color-lighter)] text-sm font-semibold text-[var(--text-color)]">
+              Coming soon
+            </div>
+            <h3 className="my-2 text-xl font-semibold">Monitoring</h3>
+            <p className="min-h-[100px]">
               We continuously monitor systems to detect and address issues early. Regular
               maintenance helps maintain performance and reduces unexpected downtime.
             </p>
           </div>
           <div>
-            <Image
-              src={cloudInfrastructure}
-              alt="Cloud Infrastructure Management"
-              width={200}
-              height={200}
-            />
+            <div className="mb-2 flex h-[200px] items-center justify-center rounded-md bg-[var(--bg-color-lighter)] text-sm font-semibold text-[var(--text-color)]">
+              Coming soon
+            </div>
             <h3 className="my-2 text-xl font-semibold">Cloud Infrastructure Management</h3>
-            <p>
+            <p className="min-h-[100px]">
               We design and manage cloud environments that scale with your needs. From setup to
               optimisation, we help ensure performance, reliability, and cost control.
             </p>
-
-            <h3 className="my-2 text-xl font-semibold">IT Strategy & Consulting</h3>
-            <p>
+            <div className="mb-2 flex h-[200px] items-center justify-center rounded-md bg-[var(--bg-color-lighter)] text-sm font-semibold text-[var(--text-color)]">
+              Coming soon
+            </div>
+            <h3 className="my-2 text-xl font-semibold">IT Strategy</h3>
+            <p className="min-h-[100px]">
               We provide guidance to align your technology with business goals. This includes
               planning, system improvements, and recommendations based on your current setup.
             </p>
