@@ -19,7 +19,7 @@ export default function LoginForm() {
         <h1 className={`mb-3 text-2xl`}>Please log in to continue.</h1>
         <div className="w-full">
           <div>
-            <label className="mb-3 mt-5 block text-xs font-medium text-[var(--text-color)]" htmlFor="email">
+            <label className="mb-3 mt-5 block font-medium text-[var(--text-color)]" htmlFor="email">
               Email
             </label>
             <div className="relative">
@@ -31,12 +31,12 @@ export default function LoginForm() {
                 placeholder="Enter your email address"
                 required
               />
-              <AtSymbolIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-[var(--text-color)]/70 peer-focus:text-[var(--text-color)]" />
+              <AtSymbolIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-[var(--text-color)] peer-focus:text-[var(--text-color)]" />
             </div>
           </div>
           <div className="mt-4">
             <label
-              className="mb-3 mt-5 block text-xs font-medium text-[var(--text-color)]"
+              className="mb-3 mt-5 block font-medium text-[var(--text-color)]"
               htmlFor="password"
             >
               Password
@@ -51,7 +51,7 @@ export default function LoginForm() {
                 required
                 minLength={6}
               />
-              <KeyIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-[var(--text-color)]/70 peer-focus:text-[var(--text-color)]" />
+              <KeyIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-[var(--text-color)] peer-focus:text-[var(--text-color)]" />
             </div>
           </div>
         </div>

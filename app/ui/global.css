@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --bg-color: #212031;
-  --bg-color-light: #2c2e42;
-  --bg-color-lighter: #43455c;
-  --text-color: #c8c8c8;
-  --text-color-light: #a0a1fe;
-  --accent-color: #fdcb68;
+  --bg-color: #212121;
+  --bg-color-light: #292929;
+  --bg-color-lighter: #303030;
+  --text-color: #d4cfb5;
+  --text-accent-color: #fdcb68;
+  --accent-color: #9e7333;
   --ok-color: #1a8a43;
   --warning-color: #f59e0b;
   --error-color: #ef4444;
@@ -16,6 +16,20 @@
 
 :focus-visible {
   outline-color: #71717a;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--bg-color) inset;
+  -webkit-text-fill-color: var(--text-color);
+  caret-color: var(--text-color);
 }
 
 input[type='number'] {

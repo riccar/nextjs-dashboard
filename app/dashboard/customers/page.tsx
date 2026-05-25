@@ -1,4 +1,4 @@
-import Pagination from '@/app/ui/invoices/pagination';
+import Pagination from '@/app/dashboard/_components/pagination';
 import Search from '@/app/ui/search';
 import Table from '@/app/ui/customers/table';
 import { InvoicesTableSkeleton,  PaginationSkeleton } from '@/app/ui/skeletons';

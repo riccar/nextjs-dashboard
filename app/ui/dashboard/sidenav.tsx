@@ -21,7 +21,7 @@ function NavLinks({ activePath }: { activePath: string | null }) {
             <NavigationMenu.Item key={link.name} className="sm:w-full">
               <NavigationMenu.Link
                 className={clsx(
-                  'flex items-center overflow-hidden rounded-sm transition-colors duration-300 hover:bg-[var(--bg-color-lighter)] sm:w-full',
+                  'flex items-center overflow-hidden rounded-md transition-colors duration-300 hover:bg-[var(--bg-color-lighter)] sm:w-full',
                   { 'bg-[var(--bg-color-lighter)]': isActive },
                 )}
                 render={

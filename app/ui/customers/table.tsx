@@ -51,7 +51,7 @@ export default async function CustomersTable({
                 </div>
               ))}
             </div>
-            <table className="hidden min-w-full text-[var(--text-color-light)] md:table">
+            <table className="hidden min-w-full text-[var(--text-accent-color)] md:table">
               <thead className="bg-[var(--bg-color-light)] text-left text-md font-normal">
                 <tr>
                   <th scope="col" className="px-4 py-5 font-medium sm:pl-6">

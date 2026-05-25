@@ -27,7 +27,7 @@ async function AuthButton() {
       <div className="flex items-center gap-2">
         <NavigationMenu.Item>
           <NavigationMenu.Link
-            className="rounded-sm px-3 py-2 transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]"
+            className="rounded-md px-3 py-2 transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]"
             render={<Link href="/dashboard">Dashboard</Link>}
           />
         </NavigationMenu.Item>
@@ -40,7 +40,7 @@ async function AuthButton() {
           <NavigationMenu.Item>
             <button
               type="submit"
-              className="rounded-sm px-3 py-2 leading-none transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]"
+              className="rounded-lg px-3 py-2 leading-none transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]"
             >
               Sign out
             </button>

@@ -51,7 +51,7 @@ export default async function InvoicesTable({
               </div>
             ))}
           </div>
-          <table className="hidden min-w-full text-[var(--text-color-light)] md:table">
+          <table className="hidden min-w-full text-[var(--text-accent-color)] md:table">
             <thead className="text-md rounded-lg text-left font-normal">
               <tr>
                 <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
