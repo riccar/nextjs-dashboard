@@ -1,8 +1,9 @@
 import { Suspense } from 'react';
-import Link from 'next/link';
 import { auth, signOut } from '@/auth';
 import UptimeOpsLogo from '../ui/uptime-ops-logo';
 import { NavigationMenu } from '@base-ui/react/navigation-menu';
+import MainNavLink from './MainNavLink';
+import clsx from 'clsx';
 
 export default function MainNav() {
   return (
@@ -24,24 +25,23 @@ async function AuthButton() {
 
   if (session?.user) {
     return (
-      <div className="flex items-center gap-2">
-        <NavigationMenu.Item>
-          <NavigationMenu.Link
-            className="rounded-md px-3 py-2 transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]"
-            render={<Link href="/dashboard">Dashboard</Link>}
-          />
-        </NavigationMenu.Item>
+      <div className="flex items-center gap-5">
+        <MainNavLink href="/dashboard">Dashboard</MainNavLink>
         <form
           action={async () => {
             'use server';
             await signOut({ redirectTo: '/' });
           }}
         >
-          <NavigationMenu.Item>
-            <button
-              type="submit"
-              className="rounded-lg px-3 py-2 leading-none transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]"
-            >
+          <NavigationMenu.Item
+            className={clsx(
+              'relative h-7 before:absolute before:bottom-[-5px]',
+              'before:block before:h-[5px] before:w-full before:rounded-md',
+              "before:bg-[var(--accent-color)] before:content-['']",
+              'before:opacity-0 before:transition-opacity hover:before:opacity-40',
+            )}
+          >
+            <button type="submit" className="flex h-full items-center rounded-md px-3 leading-none">
               Sign out
             </button>
           </NavigationMenu.Item>
@@ -50,14 +50,7 @@ async function AuthButton() {
     );
   }
 
-  return (
-    <NavigationMenu.Item>
-      <NavigationMenu.Link
-        className="rounded-sm px-3 py-2 transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]"
-        render={<Link href="/login">Sign in</Link>}
-      />
-    </NavigationMenu.Item>
-  );
+  return <MainNavLink href="/login">Sign in</MainNavLink>;
 }
 
 function AuthButtonSkeleton() {

@@ -9,6 +9,7 @@ import { Form } from '@base-ui/react/form';
 export default function Search({ placeholder }: { placeholder: string }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
+  console.log(pathname);
   const { replace } = useRouter();
 
   const handleSearch = useDebouncedCallback((term: string, urlParams: URLSearchParams) => {

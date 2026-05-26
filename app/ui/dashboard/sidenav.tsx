@@ -18,21 +18,22 @@ function NavLinks({ activePath }: { activePath: string | null }) {
         {links.map((link) => {
           const isActive = activePath === link.href;
           return (
-            <NavigationMenu.Item key={link.name} className="sm:w-full">
+            <NavigationMenu.Item
+              key={link.name}
+              className={clsx(
+                "relative before:absolute before:bottom-[-5px]",
+                "before:block before:h-[5px] before:w-full before:rounded-md",
+                "before:bg-[var(--accent-color)] before:content-[''] before:transition-opacity",
+                "sm:before:top-0 sm:before:h-full sm:before:w-[5px]",
+                isActive ? 'before:opacity-100' : 'before:opacity-0 hover:before:opacity-40',
+              )}
+            >
               <NavigationMenu.Link
-                className={clsx(
-                  'flex items-center overflow-hidden rounded-md transition-colors duration-300 hover:bg-[var(--bg-color-lighter)] sm:w-full',
-                  { 'bg-[var(--bg-color-lighter)]': isActive },
-                )}
+                className={
+                  'flex items-center overflow-hidden rounded-md sm:w-full'
+                }
                 render={
                   <Link href={link.href}>
-                    <span
-                      className={clsx(
-                        'w-[5px] self-stretch',
-                        isActive ? 'bg-[var(--accent-color)]' : 'bg-transparent',
-                      )}
-                      aria-hidden
-                    />
                     <span className="flex-1 px-3 py-1">{link.name}</span>
                   </Link>
                 }

@@ -4,7 +4,7 @@ import SideNav, { SideNavFallback } from '@/app/ui/dashboard/sidenav';
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col sm:flex-row">
-      <div className="sticky top-[86px] z-10 bg-[var(--bg-color)] sm:self-start">
+      <div className="sticky top-[82px] sm:top-[83px] z-10 bg-[var(--bg-color)] sm:self-start">
         <Suspense fallback={<SideNavFallback />}>
           <SideNav />
         </Suspense>

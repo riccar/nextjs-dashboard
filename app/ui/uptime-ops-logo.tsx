@@ -7,7 +7,7 @@ export default function UptimeOpsLogo() {
     <Link href="/">
       <div className="flex flex-row items-center gap-2">
         <Image src={logo} alt="UptimeOps" width={40} height={40} priority />
-        <span className="text-xl font-bold">
+        <span className="text-xl font-bold hidden sm:block">
           <span className="text-[var(--text-color)]">Uptime</span>
           <span className="text-[var(--accent-color)]">Ops</span>
         </span>
