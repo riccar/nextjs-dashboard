@@ -37,7 +37,7 @@ async function AuthButton() {
             className={clsx(
               'relative h-7 before:absolute before:bottom-[-5px]',
               'before:block before:h-[5px] before:w-full before:rounded-md',
-              "before:bg-[var(--accent-color)] before:content-['']",
+              "before:bg-accent before:content-['']",
               'before:opacity-0 before:transition-opacity hover:before:opacity-40',
             )}
           >
@@ -55,6 +55,6 @@ async function AuthButton() {
 
 function AuthButtonSkeleton() {
   return (
-    <div className="h-[36px] w-[72px] animate-pulse rounded-sm bg-[var(--bg-color-lighter)]" />
+    <div className="h-[36px] w-[72px] animate-pulse rounded-sm bg-surface-lighter" />
   );
 }

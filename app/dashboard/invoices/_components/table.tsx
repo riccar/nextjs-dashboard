@@ -16,7 +16,7 @@ export default async function InvoicesTable({
   return (
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
-        <div className="rounded-sm bg-[var(--bg-color-light)] p-2 md:pt-0">
+        <div className="rounded-sm bg-surface-light p-2 md:pt-0">
           <div className="md:hidden">
             {invoices?.map((invoice) => (
               <div key={invoice.id} className="mb-2 w-full rounded-sm p-4">
@@ -30,18 +30,18 @@ export default async function InvoicesTable({
                         height={28}
                         alt={`${invoice.name}'s profile picture`}
                       />
-                      <p className="text-[var(--text-color)]">{invoice.name}</p>
+                      <p className="text-content">{invoice.name}</p>
                     </div>
-                    <p className="text-[var(--text-color)]">{invoice.email}</p>
+                    <p className="text-content">{invoice.email}</p>
                   </div>
                   <InvoiceStatus status={invoice.status} />
                 </div>
                 <div className="flex w-full items-center justify-between pt-4">
                   <div>
-                    <p className="font-medium text-[var(--text-color)]">
+                    <p className="font-medium text-content">
                       {formatCurrency(invoice.amount)}
                     </p>
-                    <p className="text-[var(--text-color)]">{formatDateToLocal(invoice.date)}</p>
+                    <p className="text-content">{formatDateToLocal(invoice.date)}</p>
                   </div>
                   <div className="flex justify-end gap-2">
                     <UpdateInvoice id={invoice.id} currentPage={currentPage} />
@@ -52,7 +52,7 @@ export default async function InvoicesTable({
             ))}
           </div>
           <table className="hidden min-w-full md:table">
-            <thead className="text-md rounded-lg text-left font-normal text-[var(--text-accent-color)]">
+            <thead className="text-md rounded-lg text-left font-normal text-content-accent">
               <tr>
                 <th scope="col" className="w-[24%] px-4 py-5 font-medium sm:pl-6">
                   Customer
@@ -78,7 +78,7 @@ export default async function InvoicesTable({
               {invoices?.map((invoice) => (
                 <tr
                   key={invoice.id}
-                  className="text-md w-full border-b border-[var(--bg-color-lighter)] py-3 text-[var(--text-color)] last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-sm [&:first-child>td:last-child]:rounded-tr-sm [&:last-child>td:first-child]:rounded-bl-sm [&:last-child>td:last-child]:rounded-br-sm"
+                  className="text-md w-full border-b border-surface-lighter py-3 text-content last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-sm [&:first-child>td:last-child]:rounded-tr-sm [&:last-child>td:first-child]:rounded-bl-sm [&:last-child>td:last-child]:rounded-br-sm"
                 >
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex items-center gap-3">

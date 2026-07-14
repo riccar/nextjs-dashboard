@@ -15,9 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body
-        className={`${lato.className} bg-[var(--bg-color)] text-[var(--text-color)] antialiased`}
+        className={`${lato.className} bg-surface text-content antialiased`}
       >
-        <header className="sticky top-0 z-50 bg-[var(--bg-color)]">
+        <header className="sticky top-0 z-50 bg-surface">
           <div className="mx-auto max-w-[1200px] px-4 sm:px-8">
             <MainNav />
           </div>

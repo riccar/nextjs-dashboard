@@ -8,8 +8,8 @@ export default function UptimeOpsLogo() {
       <div className="flex flex-row items-center gap-2">
         <Image src={logo} alt="UptimeOps" width={40} height={40} priority />
         <span className="text-xl font-bold hidden sm:block">
-          <span className="text-[var(--text-color)]">Uptime</span>
-          <span className="text-[var(--accent-color)]">Ops</span>
+          <span className="text-content">Uptime</span>
+          <span className="text-accent">Ops</span>
         </span>
       </div>
     </Link>

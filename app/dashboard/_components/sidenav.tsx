@@ -23,7 +23,7 @@ function NavLinks({ activePath }: { activePath: string | null }) {
               className={clsx(
                 "relative before:absolute before:bottom-[-5px]",
                 "before:block before:h-[5px] before:w-full before:rounded-md",
-                "before:bg-[var(--accent-color)] before:content-[''] before:transition-opacity",
+                "before:bg-accent before:content-[''] before:transition-opacity",
                 "sm:before:top-0 sm:before:h-full sm:before:w-[5px]",
                 isActive ? 'before:opacity-100' : 'before:opacity-0 hover:before:opacity-40',
               )}

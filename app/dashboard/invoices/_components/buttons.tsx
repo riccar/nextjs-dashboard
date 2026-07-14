@@ -9,7 +9,7 @@ export function UpdateInvoice({ id, currentPage }: { id: string; currentPage: nu
   return (
     <Link
       href={`/dashboard/invoices/${id}/edit?page=${currentPage}`}
-      className="rounded-md border border-[var(--bg-color-lighter)] p-2 text-[var(--text-color)] transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]"
+      className="rounded-md border border-surface-lighter p-2 text-content transition-colors duration-300 hover:bg-surface-lighter"
     >
       <PencilIcon className="w-5" />
     </Link>
@@ -27,7 +27,7 @@ export function DeleteInvoice({ id }: { id: string }) {
     <form action={formAction}>
       <button
         type="submit"
-        className="rounded-md border border-[var(--bg-color-lighter)] p-2 text-[var(--text-color)] transition-colors duration-300 hover:bg-[var(--bg-color-lighter)] hover:text-[var(--text-color)]"
+        className="rounded-md border border-surface-lighter p-2 text-content transition-colors duration-300 hover:bg-surface-lighter hover:text-content"
       >
         <span className="sr-only">Delete</span>
         <TrashIcon className="w-5" />

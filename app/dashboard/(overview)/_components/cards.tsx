@@ -34,12 +34,12 @@ export function Card({
   const Icon = iconMap[type];
 
   return (
-    <div className="rounded-md bg-[var(--bg-color-light)] p-3 text-[var(--text-accent-color)]">
+    <div className="rounded-md bg-surface-light p-3 text-content-accent">
       <div className="flex">
         {Icon ? <Icon className="h-5 w-5" /> : null}
         <h3 className="ml-2 text-sm">{title}</h3>
       </div>
-      <p className={`p-5 text-center font-semibold text-xl text-[var(--text-color)]`}>{value}</p>
+      <p className={`p-5 text-center font-semibold text-xl text-content`}>{value}</p>
     </div>
   );
 }

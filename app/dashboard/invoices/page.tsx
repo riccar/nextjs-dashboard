@@ -8,7 +8,6 @@ import { fetchInvoicesPages } from '@/app/lib/data';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { PlusIcon } from '@heroicons/react/24/outline';
-import clsx from 'clsx';
 
 export const metadata: Metadata = {
   title: 'Invoices',
@@ -22,15 +21,7 @@ export default function Page(props: { searchParams?: SearchParams }) {
       <h1 className={`text-xl md:text-2xl`}>Invoices</h1>
       <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
         <Search placeholder="Search invoices" />
-        <Link
-          href="/dashboard/invoices/create"
-          className={clsx(
-            'flex h-8 items-center rounded-md px-2 text-sm',
-            'border border-[var(--bg-color-lighter)] bg-[var(--bg-color)] text-[var(--text-color)]',
-            'transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]',
-            'focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-[var(--bg-color-lighter)]',
-          )}
-        >
+        <Link href="/dashboard/invoices/create" className="btn-ghost h-8">
           <span className="hidden md:block">Create Invoice</span>
           <PlusIcon className="h-5 md:ml-1" />
         </Link>

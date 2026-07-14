@@ -19,7 +19,7 @@ export default function Page() {
       <div className="mt-10 flex flex-col gap-10 md:flex-row">
         <section className="flex flex-col gap-8 md:flex-row">
           <div>
-            <div className="mb-2 flex h-[200px] items-center justify-center rounded-md bg-[var(--bg-color-lighter)] text-sm font-semibold text-[var(--text-color)]">
+            <div className="mb-2 flex h-[200px] items-center justify-center rounded-md bg-surface-lighter text-sm font-semibold text-content">
               Coming soon
             </div>
             <h3 className="my-2 text-xl font-semibold">Managed IT Support</h3>
@@ -27,7 +27,7 @@ export default function Page() {
               We take care of day-to-day IT operations so your systems stay stable, secure, and
               predictable. Our focus is on preventing issues before they impact your business.
             </p>
-            <div className="mb-2 flex h-[200px] items-center justify-center rounded-md bg-[var(--bg-color-lighter)] text-sm font-semibold text-[var(--text-color)]">
+            <div className="mb-2 flex h-[200px] items-center justify-center rounded-md bg-surface-lighter text-sm font-semibold text-content">
               Coming soon
             </div>
             <h3 className="my-2 text-xl font-semibold">Monitoring</h3>
@@ -37,7 +37,7 @@ export default function Page() {
             </p>
           </div>
           <div>
-            <div className="mb-2 flex h-[200px] items-center justify-center rounded-md bg-[var(--bg-color-lighter)] text-sm font-semibold text-[var(--text-color)]">
+            <div className="mb-2 flex h-[200px] items-center justify-center rounded-md bg-surface-lighter text-sm font-semibold text-content">
               Coming soon
             </div>
             <h3 className="my-2 text-xl font-semibold">Cloud Infrastructure Management</h3>
@@ -45,7 +45,7 @@ export default function Page() {
               We design and manage cloud environments that scale with your needs. From setup to
               optimisation, we help ensure performance, reliability, and cost control.
             </p>
-            <div className="mb-2 flex h-[200px] items-center justify-center rounded-md bg-[var(--bg-color-lighter)] text-sm font-semibold text-[var(--text-color)]">
+            <div className="mb-2 flex h-[200px] items-center justify-center rounded-md bg-surface-lighter text-sm font-semibold text-content">
               Coming soon
             </div>
             <h3 className="my-2 text-xl font-semibold">IT Strategy</h3>

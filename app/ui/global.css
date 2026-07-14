@@ -7,11 +7,25 @@
   --bg-color-light: #292929;
   --bg-color-lighter: #303030;
   --text-color: #d4cfb5;
+  /* Raw rgb channels of --text-color so Tailwind opacity modifiers work (text-content/40) */
+  --text-color-rgb: 212 207 181;
+  --text-color-light: #a09b84;
   --text-accent-color: #fdcb68;
   --accent-color: #9e7333;
   --ok-color: #1a8a43;
   --warning-color: #f59e0b;
   --error-color: #ef4444;
+}
+
+@layer components {
+  /* Ghost button/link chrome shared by CTAs across the app */
+  .btn-ghost {
+    @apply flex h-10 items-center rounded-md px-2 text-sm
+      border border-surface-lighter bg-surface text-content
+      transition-colors duration-300 hover:bg-surface-lighter
+      focus-visible:outline focus-visible:outline-1
+      focus-visible:outline-offset-2 focus-visible:outline-surface-lighter;
+  }
 }
 
 :focus-visible {

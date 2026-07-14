@@ -5,48 +5,48 @@ export function CustomersMobileSkeleton() {
         <div>
           <div className="mb-2 flex items-center">
             <div className="flex items-center gap-3">
-              <div className="h-7 w-7 rounded-full bg-[var(--bg-color-lighter)]"></div>
-              <div className="h-5 w-24 rounded-sm bg-[var(--bg-color-lighter)]"></div>
+              <div className="h-7 w-7 rounded-full bg-surface-lighter"></div>
+              <div className="h-5 w-24 rounded-sm bg-surface-lighter"></div>
             </div>
           </div>
-          <div className="h-5 w-40 rounded-sm bg-[var(--bg-color-lighter)]"></div>
+          <div className="h-5 w-40 rounded-sm bg-surface-lighter"></div>
         </div>
       </div>
       <div className="flex w-full items-center justify-between py-4">
         <div className="flex w-1/2 flex-col gap-2">
-          <div className="h-4 w-12 rounded-sm bg-[var(--bg-color-lighter)]"></div>
-          <div className="h-5 w-20 rounded-sm bg-[var(--bg-color-lighter)]"></div>
+          <div className="h-4 w-12 rounded-sm bg-surface-lighter"></div>
+          <div className="h-5 w-20 rounded-sm bg-surface-lighter"></div>
         </div>
         <div className="flex w-1/2 flex-col gap-2">
-          <div className="h-4 w-12 rounded-sm bg-[var(--bg-color-lighter)]"></div>
-          <div className="h-5 w-20 rounded-sm bg-[var(--bg-color-lighter)]"></div>
+          <div className="h-4 w-12 rounded-sm bg-surface-lighter"></div>
+          <div className="h-5 w-20 rounded-sm bg-surface-lighter"></div>
         </div>
       </div>
-      <div className="h-5 w-24 rounded-sm bg-[var(--bg-color-lighter)]"></div>
+      <div className="h-5 w-24 rounded-sm bg-surface-lighter"></div>
     </div>
   );
 }
 
 export function CustomersTableRowSkeleton() {
   return (
-    <tr className="w-full border-b border-[var(--bg-color-lighter)] py-3 last-of-type:border-none">
+    <tr className="w-full border-b border-surface-lighter py-3 last-of-type:border-none">
       <td className="whitespace-nowrap py-3 pl-6 pr-3">
         <div className="flex items-center gap-3">
-          <div className="h-7 w-7 rounded-full bg-[var(--bg-color-lighter)]"></div>
-          <div className="h-6 w-24 rounded-sm bg-[var(--bg-color-lighter)]"></div>
+          <div className="h-7 w-7 rounded-full bg-surface-lighter"></div>
+          <div className="h-6 w-24 rounded-sm bg-surface-lighter"></div>
         </div>
       </td>
       <td className="whitespace-nowrap px-4 py-5">
-        <div className="h-6 w-40 rounded-sm bg-[var(--bg-color-lighter)]"></div>
+        <div className="h-6 w-40 rounded-sm bg-surface-lighter"></div>
       </td>
       <td className="whitespace-nowrap px-4 py-5">
-        <div className="h-6 w-12 rounded-sm bg-[var(--bg-color-lighter)]"></div>
+        <div className="h-6 w-12 rounded-sm bg-surface-lighter"></div>
       </td>
       <td className="whitespace-nowrap px-4 py-5">
-        <div className="h-6 w-20 rounded-sm bg-[var(--bg-color-lighter)]"></div>
+        <div className="h-6 w-20 rounded-sm bg-surface-lighter"></div>
       </td>
       <td className="whitespace-nowrap px-4 py-5">
-        <div className="h-6 w-20 rounded-sm bg-[var(--bg-color-lighter)]"></div>
+        <div className="h-6 w-20 rounded-sm bg-surface-lighter"></div>
       </td>
     </tr>
   );
@@ -57,7 +57,7 @@ export function CustomersTableSkeleton() {
     <div className="mt-6 flow-root">
       <div className="overflow-x-auto">
         <div className="inline-block min-w-full align-middle">
-          <div className="overflow-hidden rounded-sm bg-[var(--bg-color-light)] p-2 md:pt-0">
+          <div className="overflow-hidden rounded-sm bg-surface-light p-2 md:pt-0">
             <div className="md:hidden">
               <CustomersMobileSkeleton />
               <CustomersMobileSkeleton />
@@ -67,7 +67,7 @@ export function CustomersTableSkeleton() {
               <CustomersMobileSkeleton />
             </div>
             <table className="hidden min-w-full md:table">
-              <thead className="bg-[var(--bg-color-light)] text-left text-md font-normal text-[var(--text-accent-color)]">
+              <thead className="bg-surface-light text-left text-md font-normal text-content-accent">
                 <tr>
                   <th scope="col" className="w-[24%] px-4 py-5 font-medium sm:pl-6">
                     Customer
@@ -86,7 +86,7 @@ export function CustomersTableSkeleton() {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[var(--bg-color-lighter)]">
+              <tbody className="divide-y divide-surface-lighter">
                 <CustomersTableRowSkeleton />
                 <CustomersTableRowSkeleton />
                 <CustomersTableRowSkeleton />

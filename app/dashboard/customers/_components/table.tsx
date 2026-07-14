@@ -14,7 +14,7 @@ export default async function CustomersTable({
     <div className="mt-6 flow-root">
       <div className="overflow-x-auto">
         <div className="inline-block min-w-full align-middle">
-          <div className="overflow-hidden rounded-sm bg-[var(--bg-color-light)] p-2 md:pt-0">
+          <div className="overflow-hidden rounded-sm bg-surface-light p-2 md:pt-0">
             <div className="md:hidden">
               {customers?.map((customer) => (
                 <div key={customer.id} className="mb-2 w-full rounded-sm p-4">
@@ -32,7 +32,7 @@ export default async function CustomersTable({
                           <p>{customer.name}</p>
                         </div>
                       </div>
-                      <p className="text-sm text-[var--text-color]">{customer.email}</p>
+                      <p className="text-sm text-content">{customer.email}</p>
                     </div>
                   </div>
                   <div className="flex w-full items-center justify-between  py-4">
@@ -52,7 +52,7 @@ export default async function CustomersTable({
               ))}
             </div>
             <table className="hidden min-w-full md:table">
-              <thead className="bg-[var(--bg-color-light)] text-left text-md font-normal text-[var(--text-accent-color)]">
+              <thead className="bg-surface-light text-left text-md font-normal text-content-accent">
                 <tr>
                   <th scope="col" className="w-[24%] px-4 py-5 font-medium sm:pl-6">
                     Customer
@@ -72,9 +72,9 @@ export default async function CustomersTable({
                 </tr>
               </thead>
 
-              <tbody className="divide-y divide-[var(--bg-color-lighter)] text-[var(--text-color)]">
+              <tbody className="divide-y divide-surface-lighter text-content">
                 {customers.map((customer) => (
-                  <tr key={customer.id} className="text-md w-full border-b border-[var(--bg-color-lighter)] py-3 text-[var(--text-color)]">
+                  <tr key={customer.id} className="text-md w-full border-b border-surface-lighter py-3 text-content">
                     <td className="whitespace-nowrap py-3 pl-6 pr-3">
                       <div className="flex items-center gap-3">
                         <Image

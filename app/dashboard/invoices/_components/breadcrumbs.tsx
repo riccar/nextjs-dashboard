@@ -16,7 +16,7 @@ export default function Breadcrumbs({ breadcrumbs }: { breadcrumbs: Breadcrumb[]
           <li
             key={breadcrumb.href}
             aria-current={breadcrumb.active}
-            className={clsx(breadcrumb.active ? 'text-[var(--text-color)]' : 'text-[var(--text-color-light)]')}
+            className={clsx(breadcrumb.active ? 'text-content' : 'text-content-light')}
           >
             <Link href={breadcrumb.href}>{breadcrumb.label}</Link>
             {index < breadcrumbs.length - 1 ? <span className="mx-3 inline-block">/</span> : null}

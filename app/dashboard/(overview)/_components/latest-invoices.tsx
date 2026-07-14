@@ -9,7 +9,7 @@ export default async function LatestInvoices() {
   return (
     <div className="flex w-full flex-col md:col-span-4">
       <h2 className={`mb-4 text-xl`}>Latest Invoices</h2>
-      <div className="flex grow flex-col justify-between rounded-sm bg-[var(--bg-color-light)] p-4">
+      <div className="flex grow flex-col justify-between rounded-sm bg-surface-light p-4">
         {latestInvoices.map((invoice, i) => {
           return (
             <div
@@ -27,10 +27,10 @@ export default async function LatestInvoices() {
                   height={32}
                 />
                 <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold text-[var(--text-color)] md:text-base">
+                  <p className="truncate text-sm font-semibold text-content md:text-base">
                     {invoice.name}
                   </p>
-                  <p className="hidden text-sm text-[var(--text-color)] sm:block">
+                  <p className="hidden text-sm text-content sm:block">
                     {invoice.email}
                   </p>
                 </div>

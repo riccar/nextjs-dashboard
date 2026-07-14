@@ -20,7 +20,7 @@ export default function MainNavLink({
       className={clsx(
         "relative h-7 before:absolute before:bottom-[-5px] before:block before:h-[5px]",
         "before:w-full before:rounded-md before:content-['']",
-        "before:bg-[var(--accent-color)] before:transition-opacity",
+        "before:bg-accent before:transition-opacity",
         isActive ? 'before:opacity-100' : 'before:opacity-0 hover:before:opacity-40',
       )}
     >
