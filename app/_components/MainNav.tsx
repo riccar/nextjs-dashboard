@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { auth, signOut } from '@/auth';
-import UptimeOpsLogo from '../ui/uptime-ops-logo';
+import UptimeOpsLogo from './uptime-ops-logo';
 import { NavigationMenu } from '@base-ui/react/navigation-menu';
 import MainNavLink from './MainNavLink';
 import clsx from 'clsx';

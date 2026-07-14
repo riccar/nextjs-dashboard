@@ -1,4 +1,5 @@
-import { CustomersTableSkeleton, PaginationSkeleton } from '@/app/ui/skeletons';
+import { CustomersTableSkeleton } from './_components/skeletons';
+import { PaginationSkeleton } from '@/app/dashboard/_components/skeletons';
 
 export default function Loading() {
   return (

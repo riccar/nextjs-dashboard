@@ -1,7 +1,8 @@
 import Pagination from '@/app/dashboard/_components/pagination';
-import Search from '@/app/ui/search';
-import Table from '@/app/ui/invoices/table';
-import { InvoicesTableSkeleton, PaginationSkeleton } from '@/app/ui/skeletons';
+import Search from '@/app/dashboard/_components/search';
+import Table from './_components/table';
+import { InvoicesTableSkeleton } from './_components/skeletons';
+import { PaginationSkeleton } from '@/app/dashboard/_components/skeletons';
 import { Suspense } from 'react';
 import { fetchInvoicesPages } from '@/app/lib/data';
 import { Metadata } from 'next';

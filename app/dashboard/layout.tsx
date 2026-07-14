@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import SideNav, { SideNavFallback } from '@/app/ui/dashboard/sidenav';
+import SideNav, { SideNavFallback } from './_components/sidenav';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

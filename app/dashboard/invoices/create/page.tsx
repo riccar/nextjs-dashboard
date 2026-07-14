@@ -1,7 +1,7 @@
-import Form from '@/app/ui/invoices/create-form';
-import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
+import Form from './_components/create-form';
+import Breadcrumbs from '@/app/dashboard/invoices/_components/breadcrumbs';
 import { fetchCustomers } from '@/app/lib/data';
-import { InvoiceFormSkeleton } from '@/app/ui/skeletons';
+import { InvoiceFormSkeleton } from '@/app/dashboard/invoices/_components/skeletons';
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 
