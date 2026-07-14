@@ -51,25 +51,25 @@ export default async function InvoicesTable({
               </div>
             ))}
           </div>
-          <table className="hidden min-w-full text-[var(--text-accent-color)] md:table">
-            <thead className="text-md rounded-lg text-left font-normal">
+          <table className="hidden min-w-full md:table">
+            <thead className="text-md rounded-lg text-left font-normal text-[var(--text-accent-color)]">
               <tr>
-                <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
+                <th scope="col" className="w-[24%] px-4 py-5 font-medium sm:pl-6">
                   Customer
                 </th>
-                <th scope="col" className="px-3 py-5 font-medium">
+                <th scope="col" className="w-[24%] px-3 py-5 font-medium">
                   Email
                 </th>
-                <th scope="col" className="px-3 py-5 font-medium">
+                <th scope="col" className="w-[14%] px-3 py-5 font-medium">
                   Amount
                 </th>
-                <th scope="col" className="px-3 py-5 font-medium">
+                <th scope="col" className="w-[14%] px-3 py-5 font-medium">
                   Date
                 </th>
-                <th scope="col" className="px-3 py-5 font-medium">
+                <th scope="col" className="w-[12%] px-3 py-5 font-medium">
                   Status
                 </th>
-                <th scope="col" className="relative py-3 pl-6 pr-3">
+                <th scope="col" className="relative w-[12%] py-3 pl-6 pr-3">
                   <span className="sr-only">Edit</span>
                 </th>
               </tr>

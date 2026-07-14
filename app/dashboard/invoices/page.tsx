@@ -24,7 +24,7 @@ export default function Page(props: { searchParams?: SearchParams }) {
         <Link
           href="/dashboard/invoices/create"
           className={clsx(
-            'flex h-10 items-center rounded-md px-2 text-sm',
+            'flex h-8 items-center rounded-md px-2 text-sm',
             'border border-[var(--bg-color-lighter)] bg-[var(--bg-color)] text-[var(--text-color)]',
             'transition-colors duration-300 hover:bg-[var(--bg-color-lighter)]',
             'focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-[var(--bg-color-lighter)]',

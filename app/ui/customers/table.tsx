@@ -51,22 +51,22 @@ export default async function CustomersTable({
                 </div>
               ))}
             </div>
-            <table className="hidden min-w-full text-[var(--text-accent-color)] md:table">
-              <thead className="bg-[var(--bg-color-light)] text-left text-md font-normal">
+            <table className="hidden min-w-full md:table">
+              <thead className="bg-[var(--bg-color-light)] text-left text-md font-normal text-[var(--text-accent-color)]">
                 <tr>
-                  <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
-                    Name
+                  <th scope="col" className="w-[24%] px-4 py-5 font-medium sm:pl-6">
+                    Customer
                   </th>
-                  <th scope="col" className="px-3 py-5 font-medium">
+                  <th scope="col" className="w-[28%] px-3 py-5 font-medium">
                     Email
                   </th>
-                  <th scope="col" className="px-3 py-5 font-medium">
+                  <th scope="col" className="w-[16%] px-3 py-5 font-medium">
                     Total Invoices
                   </th>
-                  <th scope="col" className="px-3 py-5 font-medium">
+                  <th scope="col" className="w-[16%] px-3 py-5 font-medium">
                     Total Pending
                   </th>
-                  <th scope="col" className="px-4 py-5 font-medium">
+                  <th scope="col" className="w-[16%] px-4 py-5 font-medium">
                     Total Paid
                   </th>
                 </tr>

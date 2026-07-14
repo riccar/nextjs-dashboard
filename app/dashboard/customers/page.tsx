@@ -1,7 +1,7 @@
 import Pagination from '@/app/dashboard/_components/pagination';
 import Search from '@/app/ui/search';
 import Table from '@/app/ui/customers/table';
-import { InvoicesTableSkeleton,  PaginationSkeleton } from '@/app/ui/skeletons';
+import { CustomersTableSkeleton, PaginationSkeleton } from '@/app/ui/skeletons';
 import { Suspense } from 'react';
 import { fetchCustomersPages } from '@/app/lib/data';
 import { Metadata } from 'next';
@@ -34,7 +34,7 @@ export default function Page(props: { searchParams?: SearchParams }) {
           <PlusIcon className="h-5 md:ml-1" />
         </Link>
       </div>
-      <Suspense fallback={<InvoicesTableSkeleton />}>
+      <Suspense fallback={<CustomersTableSkeleton />}>
         <TableWrapper searchParams={props.searchParams} />
       </Suspense>
       <div className="mt-5 flex w-full justify-center">
